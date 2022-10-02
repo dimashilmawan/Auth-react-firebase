@@ -39,26 +39,29 @@ const AuthForm = () => {
 				<div className="">
 					<input
 						ref={emailInputRef}
-						className="w-full rounded-xl px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+						className="w-full rounded-xl px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:bg-gray-500 dark:text-gray-200 dark:placeholder:text-gray-300/70	"
 						type="email"
 						id="email"
+						required
 						placeholder="Enter email"
 					/>
 				</div>
 				<div className="mt-3">
 					<input
 						ref={passwordInputRef}
-						className="w-full rounded-xl px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+						className="w-full rounded-xl px-4 py-3 shadow-sm	 focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:bg-gray-500 dark:text-gray-200 dark:placeholder:text-gray-300/70"
 						type="password"
 						id="password"
+						required
 						placeholder="Enter password"
+						minLength={8}
 					/>
 				</div>
 				<button className="mt-5 w-full rounded-xl bg-emerald-600 py-3 text-center font-semibold text-gray-100 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2  dark:focus:ring-offset-gray-700">
 					{isLogin ? "Login" : "Sign up"}
 				</button>
 				{error && (
-					<p className="mx-auto mt-3 block  rounded-lg bg-red-200 p-2 px-4 text-center text-red-800">
+					<p className="mx-auto mt-3 block  rounded-lg bg-red-300 p-2 px-4 text-center text-red-800">
 						{error.split("Error ")[1]}
 					</p>
 				)}
