@@ -1,26 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 
 const AuthForm = () => {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const emailInputRef = useRef("");
+	const passwordInputRef = useRef("");
+	// const [email, setEmail] = useState("");
+	// const [password, setPassword] = useState("");
 	const [isLogin, setIsLogin] = useState(true);
 	const [error, setError] = useState(null);
 	const { login, signup } = useAuthContext();
 	const navigate = useNavigate();
 	const submitHandler = async e => {
 		e.preventDefault();
+		const emailInput = emailInputRef.current.value;
+		const passwordInput = passwordInputRef.current.value;
 		try {
 			setError(null);
 			if (isLogin) {
-				await login(email, password);
+				await login(emailInput, passwordInput);
 			} else {
-				await signup(email, password);
+				await signup(emailInput, passwordInput);
+				emailInputRef.current.value = "";
 			}
 			navigate("/account");
 		} catch (e) {
-			console.log(e.message);
+			emailInputRef.current.value = "";
+			passwordInputRef.current.value = "";
 			setError(e.message);
 		}
 	};
@@ -32,7 +38,7 @@ const AuthForm = () => {
 			<form onSubmit={submitHandler} className="mt-8">
 				<div className="">
 					<input
-						onChange={e => setEmail(e.target.value)}
+						ref={emailInputRef}
 						className="w-full rounded-xl px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
 						type="email"
 						id="email"
@@ -41,16 +47,21 @@ const AuthForm = () => {
 				</div>
 				<div className="mt-3">
 					<input
-						onChange={e => setPassword(e.target.value)}
+						ref={passwordInputRef}
 						className="w-full rounded-xl px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
 						type="password"
 						id="password"
 						placeholder="Enter password"
 					/>
 				</div>
-				<button className="mt-5 w-full rounded-xl bg-emerald-600 py-3 text-center font-semibold  text-gray-100">
+				<button className="mt-5 w-full rounded-xl bg-emerald-600 py-3 text-center font-semibold text-gray-100 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2  dark:focus:ring-offset-gray-700">
 					{isLogin ? "Login" : "Sign up"}
 				</button>
+				{error && (
+					<p className="mx-auto mt-3 block  rounded-lg bg-red-200 p-2 px-4 text-center text-red-800">
+						{error.split("Error ")[1]}
+					</p>
+				)}
 			</form>
 			<p className="mt-2 flex justify-center gap-2 text-center text-sm dark:text-gray-300/90">
 				{isLogin ? "Don't have an account yet ?" : "Already have an account ?"}
@@ -58,6 +69,7 @@ const AuthForm = () => {
 					onClick={e => {
 						e.preventDefault();
 						setIsLogin(prevState => !prevState);
+						setError(null);
 					}}
 					className="font-semibold text-emerald-600  underline underline-offset-[2px]"
 				>

@@ -34,7 +34,7 @@ const Navbar = ({ onThemeToggle, darkMode }) => {
 						<li className="">
 							<Link
 								to="/auth"
-								className="flex items-center rounded-lg bg-emerald-600  px-4 py-2 text-sm text-gray-100 transition hover:bg-emerald-500  focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 focus:ring-offset-gray-100 dark:focus:ring-offset-slate-800"
+								className="flex items-center rounded-lg bg-emerald-600  px-4 py-2 text-sm  text-gray-100 transition hover:bg-emerald-500 focus:outline-none  focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 focus:ring-offset-gray-100 dark:focus:ring-offset-slate-800 sm:px-5"
 							>
 								Login
 							</Link>
