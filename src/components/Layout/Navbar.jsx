@@ -13,7 +13,7 @@ const Navbar = ({ onThemeToggle, darkMode }) => {
 				<ul
 					className={`flex w-full items-center justify-between text-lg font-semibold text-gray-700 `}
 				>
-					<li className=" ">
+					<li className="items center flex ">
 						<Link
 							to="/"
 							className="inline-block focus:outline-none focus:ring-2 focus:ring-emerald-600"
