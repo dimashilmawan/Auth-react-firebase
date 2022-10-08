@@ -1,3 +1,3 @@
-This project was built using React js and Firebase
+This project was built using React js, Tailwindcss and Firebase
 
-Site : https://auth-react-firebase-dh.netlify.app/
+Demo : https://auth-react-firebase-dh.netlify.app/

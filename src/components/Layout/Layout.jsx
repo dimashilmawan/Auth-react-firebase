@@ -5,7 +5,7 @@ const Layout = ({ children }) => {
 	const [darkMode, setDarkMode] = useState(false);
 	return (
 		<div className={darkMode ? "dark" : ""}>
-			<div className="h-screen w-screen bg-gray-100 dark:bg-gray-800">
+			<div className="h-screen w-screen bg-gray-100 transition-all dark:bg-gray-800">
 				<Navbar onThemeToggle={setDarkMode} darkMode={darkMode} />
 				<main className="mt-20 px-4">{children}</main>
 			</div>

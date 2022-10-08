@@ -2,8 +2,6 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Account from "./components/Auth/Account";
-// import Login from "./components/Auth/Login";
-// import Signup from "./components/Auth/Signup";
 import AuthForm from "./components/Auth/AuthForm";
 import Home from "./components/Layout/Home";
 import { useAuthContext } from "./context/AuthContext";

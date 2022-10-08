@@ -8,8 +8,10 @@ const Account = () => {
 	};
 	return (
 		<div className="mx-auto mt-24 max-w-xl">
-			<h1 className="text-3xl font-bold dark:text-gray-100">Account</h1>
-			<p className="mt-1 text-gray-600 dark:text-gray-200">
+			<h1 className="text-3xl font-bold transition-all dark:text-gray-100">
+				Account
+			</h1>
+			<p className="mt-1 text-gray-600 transition-all dark:text-gray-200">
 				Email : {user?.email}
 			</p>
 			<button
