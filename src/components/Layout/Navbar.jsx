@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { BsMoonFill, BsSunFill } from "react-icons/bs";
 import { RiHome7Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 
 const Navbar = ({ onThemeToggle, darkMode }) => {
-	const [navOpen, setNavOpen] = useState(false);
 	const { user } = useAuthContext();
 	return (
 		<header className={`py-4 px-4 sm:px-8`}>
@@ -37,7 +36,7 @@ const Navbar = ({ onThemeToggle, darkMode }) => {
 						<li className="">
 							<Link
 								to="/auth"
-								className="flex items-center rounded-lg bg-emerald-600  px-4 py-2 text-sm  text-gray-100  transition-all hover:scale-[1.03] hover:shadow-sm hover:shadow-emerald-600/80 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 focus:ring-offset-gray-100 dark:focus:ring-offset-slate-800 sm:px-5"
+								className="flex animate-bounce items-center rounded-lg  bg-emerald-600 px-4 py-2  text-sm  text-gray-100 transition-all hover:scale-[1.03] hover:shadow-sm hover:shadow-emerald-600/80 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 focus:ring-offset-gray-100 dark:focus:ring-offset-slate-800 sm:px-5"
 							>
 								Login
 							</Link>
