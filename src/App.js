@@ -5,11 +5,9 @@ import Account from "./components/Auth/Account";
 import AuthForm from "./components/Auth/AuthForm";
 import Home from "./components/Layout/Home";
 import { useAuthContext } from "./context/AuthContext";
-import ProtectedRoute from "./ProtectedRoute";
 
 const App = () => {
 	const { user } = useAuthContext();
-
 	return (
 		<Layout>
 			<Routes>
